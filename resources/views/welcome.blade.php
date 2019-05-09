@@ -35,7 +35,7 @@
         <div class="row">
         @foreach($schools as $partners)
             <div class="col-md-2 col-sm-4 text-center"> 
-                <a href="url({{ $partners->url }})">
+                <a href="https://{{ $partners->url }}">
                     <figure class="figure">
                         <img class="figure-img img-fluid rounded partners-logo" width="100%" height="100%" src="{{ asset('uploads/'. $partners->logo) }}" >
                         <center>
