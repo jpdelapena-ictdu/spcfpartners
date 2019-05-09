@@ -19,7 +19,15 @@
     </style>
 @endpush
 
-@include('crud::inc.show_fields', ['fields' => $crud->getFieldsWithoutATab()])
+@if ($crud->getFieldsWithoutATab()->filter(function ($value, $key) { return $value['type'] != 'hidden'; })->count())
+<div class="box p-t-20">
+    <div class="box-body">
+    @include('crud::inc.show_fields', ['fields' => $crud->getFieldsWithoutATab()])
+    </div>
+</div>
+@else
+    @include('crud::inc.show_fields', ['fields' => $crud->getFieldsWithoutATab()])
+@endif
 
 <div class="tab-container {{ $horizontalTabs ? 'col-xs-12' : 'col-xs-3 m-t-10' }}">
 
@@ -27,7 +35,7 @@
         <ul class="nav {{ $horizontalTabs ? 'nav-tabs' : 'nav-stacked nav-pills'}}" role="tablist">
             @foreach ($crud->getTabs() as $k => $tab)
                 <li role="presentation" class="{{$k == 0 ? 'active' : ''}}">
-                    <a href="#tab_{{ str_slug($tab, "") }}" aria-controls="tab_{{ str_slug($tab, "") }}" role="tab" data-toggle="tab">{{ $tab }}</a>
+                    <a href="#tab_{{ str_slug($tab, "") }}" aria-controls="tab_{{ str_slug($tab, "") }}" role="tab" tab_name="{{ str_slug($tab, "") }}" data-toggle="tab" class="tab_toggler">{{ $tab }}</a>
                 </li>
             @endforeach
         </ul>
@@ -35,7 +43,7 @@
 
 </div>
 
-<div class="tab-content {{$horizontalTabs ? 'col-md-12' : 'col-md-9 m-t-10'}}">
+<div class="tab-content box {{$horizontalTabs ? 'col-md-12' : 'col-md-9 m-t-10'}}">
 
     @foreach ($crud->getTabs() as $k => $tab)
     <div role="tabpanel" class="tab-pane{{$k == 0 ? ' active' : ''}}" id="tab_{{ str_slug($tab, "") }}">

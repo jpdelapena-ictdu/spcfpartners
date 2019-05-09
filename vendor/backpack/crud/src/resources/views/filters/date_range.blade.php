@@ -84,6 +84,9 @@
 			new_url = normalizeAmpersand(new_url.toString());
 			ajax_table.ajax.url(new_url).load();
 
+			// add filter to URL
+			crud.updateUrl(new_url);
+
 			// mark this filter as active in the navbar-filters
 			if (URI(new_url).hasQuery('{{ $filter->name }}', true)) {
 				$('li[filter-name={{ $filter->name }}]').removeClass('active').addClass('active');
@@ -111,9 +114,10 @@
 				@endif
 				alwaysShowCalendars: true,
 				autoUpdateInput: true
-			},
-			function (start, end) {
-				applyDateRangeFilter{{camel_case($filter->name)}}(start, end);
+			});
+
+			dateRangeInput.on('apply.daterangepicker', function(ev, picker) {
+				applyDateRangeFilter{{camel_case($filter->name)}}(picker.startDate, picker.endDate);
 			});
 
 			$('li[filter-name={{ $filter->name }}]').on('hide.bs.dropdown', function () {

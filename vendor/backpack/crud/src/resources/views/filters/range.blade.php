@@ -78,7 +78,7 @@ END OF FILTER JAVSCRIPT CHECKLIST --}}
 				e.preventDefault();
 				var from = $("li[filter-name={{ $filter->name }}] .from").val();
 				var to = $("li[filter-name={{ $filter->name }}] .to").val();
-				if (from && to) {
+				if (from || to) {
 					var range = {
 						'from': from,
 						'to': to
@@ -98,6 +98,9 @@ END OF FILTER JAVSCRIPT CHECKLIST --}}
 				// replace the datatables ajax url with new_url and reload it
 				new_url = normalizeAmpersand(new_url.toString());
 				ajax_table.ajax.url(new_url).load();
+
+				// add filter to URL
+				crud.updateUrl(new_url);
 
 				// mark this filter as active in the navbar-filters
 				if (URI(new_url).hasQuery('{{ $filter->name }}', true)) {

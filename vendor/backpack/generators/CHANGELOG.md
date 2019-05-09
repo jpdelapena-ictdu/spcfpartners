@@ -19,6 +19,55 @@ All Notable changes to `Backpack Generators` will be documented in this file
 ### Security
 - Nothing
 
+## 1.2.7 - 2019-02-27
+
+## Added
+- Backpack\Base 1.1 compatibility;
+
+## 1.2.6 - 2019-01-16
+
+## Added
+- CrudPanel reference to CrudController stb, for IDE code completion;
+
+## 1.2.5 - 2018-11-22
+
+## Added
+- support for Backpack/Base 1.0.0
+
+## 1.2.4 - 2018-08-27
+
+### Removed
+- commented API from controller stub;
+
+## 1.2.3 - 2018-07-07
+
+### Added
+- ```setRequiredFields()``` to controller stub;
+
+### Fixed
+- fields before columns in the controller stub;
+
+
+## 1.2.2 - 2018-06-22
+
+### Fixed
+- composer requirements;
+
+
+## 1.2.1 - 2018-06-22
+
+### Fixed
+- Travis CI;
+
+## 1.2.0 - 2018-06-22
+
+### Fixed
+- cleaner service provider;
+- annotation to allow IDEs to autocomplete the code when referencing ```$crud```;
+- #39 - use backpack_auth() function from 0.9.x updates;
+
+### Removed
+- support for Backpack\Base below 0.9;
 
 
 ## 1.1.13 - 2018-02-14
