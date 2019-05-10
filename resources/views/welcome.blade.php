@@ -21,7 +21,7 @@
 
 <!-- particles.js container -->
 <div id="particles-js">
-    </div>
+    
 
 
 <div class="logo">
@@ -32,7 +32,8 @@
 
 <div class="partner-wrapper">
     <div class="container">
-        <div class="row">
+      <div class="col-md-12">
+        <div class="row justify-content-center">
         @foreach($schools as $partners)
             <div class="col-md-2 col-sm-4 text-center"> 
                 <a href="https://{{ $partners->url }}">
@@ -46,13 +47,14 @@
             </div>
         @endforeach
         </div>
+      </div>
     </div>
 </div>
 
 <footer>
     <center>
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-md-12">
             <span class="footcontent"><b>SYSTEMS PLUS COLLEGE FOUNDATION</b></span>
             <br>
@@ -61,15 +63,17 @@
             <span class="footcontent"><i>Mc. Arthur High Way, Balibago, Angeles City</i></span>
             <br>
             <span class="footcontent">&copy;2018</span>
-            {{-- <br>
+            <br>
             <span class="footcontent">Powered By: </span>
-            <img class="ictdulogo" src="img/ictdulogo.png"> --}}
+            <br>
+            <img class="ictdulogo" src="img/ictdulogo.png">
           </div>
         </div>
       </div>
   </center>
 </footer>
 
+</div>
 
 <!-- scripts -->
 <script src="js/particles.js"></script>
