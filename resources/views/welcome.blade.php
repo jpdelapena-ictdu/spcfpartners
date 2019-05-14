@@ -40,7 +40,7 @@
                     <figure class="figure">
                         <img class="figure-img img-fluid rounded partners-logo" width="100%" height="100%" src="{{ asset('uploads/'. $partners->logo) }}" >
                         <center>
-                            <figcaption class="figure-caption">{{ $partners->abbreviation }}</figcaption>
+                            <figcaption class="figure-caption" style="color:white;">{{ $partners->abbreviation }}</figcaption>
                         </center>
                     </figure>
                 </a>
@@ -64,7 +64,7 @@
             <br>
             <span class="footcontent">&copy;2018</span>
             <br>
-            <span class="footcontent">Powered By: </span>
+            <span class="footcontent">Powered By:</span>
             <br>
             <img class="ictdulogo" src="img/ictdulogo.png">
           </div>
